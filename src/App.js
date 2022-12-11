@@ -5,19 +5,14 @@ import './style.css'
 
 function App() {
   const [diades, setCastells] = useState({});
-  const [puntuacions, setPuntuacions] = useState({});
 
   const exports = {
     'diades': diades,
-    'setCastells': setCastells,
-    'puntuacions': puntuacions,
-    'setPuntuacions': setPuntuacions
+    'setCastells': setCastells
   };
 
   useEffect(() => {
   }, [diades]);
-  useEffect(() => {
-  }, [puntuacions]);
 
   return (
     <>

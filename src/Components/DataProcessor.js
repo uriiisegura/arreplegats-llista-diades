@@ -2,9 +2,8 @@ import { useEffect } from "react";
 import * as Papa from 'papaparse';
 
 function DataProcessor(props) {
-    const { setCastells, setPuntuacions } = props;
+    const { setCastells } = props;
     const CASTELLS_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRzvM_JNeX_MUNi4ZarVZDcj5CdyrDBTPbf3lDUrvUs_HvaX3S0k07yLmJKolAPf0BA6iM1FW4w1u83/pub?gid=0&single=true&output=csv";
-    const SCORE_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeAif6pgFuLUAXHif4IsrSXzG8itYhirTHGdmNzA5RmrEPcJe7lcfwfNVLBEcgnn3mZbThqaZdouiP/pub?gid=1401475200&single=true&output=csv";
 
     const get_data = (link, callback) => Papa.parse(link, {
         download: true,
@@ -59,27 +58,9 @@ function DataProcessor(props) {
         return diades_dict;
     };
 
-    const process_puntuacions = (data) => {
-        let puntuacions_dict = {};
-        data.forEach(castell => {
-            puntuacions_dict[castell.castell] = parseInt(castell["Descarregat"]);
-        });
-        puntuacions_dict["Pd3cam"] = 14;
-        puntuacions_dict["Pd4cam"] = 119;
-        puntuacions_dict["Vd5"] = 571;
-        puntuacions_dict["Vd6f"] = 1911;
-        puntuacions_dict["3d7+4d7"] = 2301;
-
-        return puntuacions_dict;
-    };
-
     useEffect(() => {
         get_data(CASTELLS_URL, (results) => {
             setCastells(aggregate(results.data));
-        });
-
-        get_data(SCORE_URL, (results) => {
-            setPuntuacions(process_puntuacions(results.data));
         });
     }, []);
 }
