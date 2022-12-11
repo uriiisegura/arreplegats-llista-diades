@@ -1,0 +1,14 @@
+:root {
+	--theme: #15a884;
+	--dark: #222222;
+}
+
+html, body {
+	margin: 0;
+	background-color: var(--dark);
+	font-family: 'Arial';
+}
+
+#llista .wrap {
+	display: flow-root;
+}
