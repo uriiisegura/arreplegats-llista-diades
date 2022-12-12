@@ -3,6 +3,28 @@
 	--dark: #222222;
 }
 
+#llista .diada {
+	background-color: #ffffff;
+	padding: 5px 25px 5px 5px;
+	position: relative;
+	border: 1px solid #000000;
+	margin-bottom: -1px;
+}
+#llista .nom {
+	font-weight: bold;
+}
+#llista .arrow {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	position: absolute;
+	top: 40%;
+	right: 10px;
+}
+
 html, body {
 	margin: 0;
 	background-color: var(--dark);
@@ -11,4 +33,16 @@ html, body {
 
 #llista .wrap {
 	display: flow-root;
+	padding-top: 26px;
+}
+
+#selector select {
+	width: 100%;
+	border-radius: 0;
+	border: 1px solid #000000;
+	padding: 3px;
+	font-size: 16px;
+	position: fixed;
+	z-index: 1000;
+	margin: -1px 0 0 0;
 }
