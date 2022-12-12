@@ -27,7 +27,7 @@ function DataProcessor(props) {
             diades_dict[diada_hash] = {};
             const by_diada = rows.filter(row => get_diada_hash(row) === diada_hash);
             if (by_diada.length === 0) return;
-            diades_dict[diada_hash]["info"] = (({ dia, mes, any, situació, ciutat, motiu }) => ({ dia, mes, any, situació, ciutat, motiu }))(by_diada[0]);
+            diades_dict[diada_hash]["info"] = (({ dia, mes, any, situació, ciutat, motiu, hora }) => ({ dia, mes, any, situació, ciutat, motiu, hora }))(by_diada[0]);
             
             diades_dict[diada_hash]["castells"] = by_diada.map(castell => (({ tipus, alçada, agulla, pinya, altres, ordre, resolució }) => ({ tipus, alçada, agulla, pinya, altres, ordre, resolució }))(castell));
             diades_dict[diada_hash]["castells"].forEach((castell, i) => {

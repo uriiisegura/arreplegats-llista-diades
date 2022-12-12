@@ -96,11 +96,12 @@ function Llista(props) {
 				{
 					actuacions.map(diada => {
 						const season = getTemporada(diada["info"]["data"]);
+						console.log(diada["info"]);
 						return (
 							<div className="diada" data-season={season} style={{display: season !== document.getElementById('select_temporada').value ? 'none' : 'block' }}>
 								<span className="nom">{diada["info"]["motiu"] || "Diada ?"}</span><br/>
+								<span className="info">{diada["info"]["situació"]} a les {diada["info"]["hora"]}</span><br/>
 								<span className="castells">{getCastellsDiada(diada["castells"])}</span>
-								<i className="arrow"></i>
 							</div>
 						);
 					})
