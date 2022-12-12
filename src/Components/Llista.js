@@ -20,6 +20,10 @@ function Llista(props) {
 		return new Date(`${month}/${day}/${year}`);
 	};
 
+	const toString = (date) => {
+		return (fromEuropean(date).toLocaleDateString("ca", { month: 'long', day: 'numeric', year: 'numeric' }));
+	}
+
 	const getCastellsDiada = (diada) => {
 		let castells = "";
 		const round = [];
@@ -88,7 +92,6 @@ function Llista(props) {
 		return count;
 	};
 
-	// 2058 -> diada?
 	const actuacions = [...Object.values(diades)];
 	return (
 		<div id="llista">
@@ -96,11 +99,11 @@ function Llista(props) {
 				{
 					actuacions.map(diada => {
 						const season = getTemporada(diada["info"]["data"]);
-						console.log(diada["info"]);
 						return (
 							<div className="diada" data-season={season} style={{display: season !== document.getElementById('select_temporada').value ? 'none' : 'block' }}>
 								<span className="nom">{diada["info"]["motiu"] || "Diada ?"}</span><br/>
-								<span className="info">{diada["info"]["situació"]} a les {diada["info"]["hora"]}</span><br/>
+								<span className="place">{diada["info"]["situació"]}</span><br/>
+								<span className="date">{toString(diada["info"]["data"])} a les {diada["info"]["hora"]}</span><br/>
 								<span className="castells">{getCastellsDiada(diada["castells"])}</span>
 							</div>
 						);
