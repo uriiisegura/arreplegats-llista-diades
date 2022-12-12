@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/arreplegats-llista-diades/static/css/main.68096247.css",
-    "main.js": "/arreplegats-llista-diades/static/js/main.59edcaf3.js",
+    "main.css": "/arreplegats-llista-diades/static/css/main.8b2e642b.css",
+    "main.js": "/arreplegats-llista-diades/static/js/main.661fc6ea.js",
     "index.html": "/arreplegats-llista-diades/index.html",
-    "main.68096247.css.map": "/arreplegats-llista-diades/static/css/main.68096247.css.map",
-    "main.59edcaf3.js.map": "/arreplegats-llista-diades/static/js/main.59edcaf3.js.map"
+    "main.8b2e642b.css.map": "/arreplegats-llista-diades/static/css/main.8b2e642b.css.map",
+    "main.661fc6ea.js.map": "/arreplegats-llista-diades/static/js/main.661fc6ea.js.map"
   },
   "entrypoints": [
-    "static/css/main.68096247.css",
-    "static/js/main.59edcaf3.js"
+    "static/css/main.8b2e642b.css",
+    "static/js/main.661fc6ea.js"
   ]
 }
