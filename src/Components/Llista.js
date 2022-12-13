@@ -6,7 +6,7 @@ function Llista(props) {
 		if (isFromTemporada(data, year+'-'+(year+1)))
 			return year+'-'+(year+1);
 		return (year-1)+'-'+year;
-	}
+	};
 
 	const isFromTemporada = (diada, temporada) => {
 		const diadaDate = fromEuropean(diada);
@@ -93,17 +93,17 @@ function Llista(props) {
 	};
 
 	const actuacions = [...Object.values(diades)];
+	let last_temporada;
+	if (actuacions[actuacions.length - 1] !== undefined)
+		last_temporada = getTemporada(actuacions[actuacions.length - 1]["info"]["data"]);
 	return (
 		<div id="llista">
 			<div className="wrap">
-				<div className="diada" data-season="2020-2021" style={{display: "none"}}>
-					<span className="nom">Durant aquesta temporada no es va actuar a causa de l'aturada provocada per la COVID-19.</span>
-				</div>
 				{
 					actuacions.map(diada => {
 						const season = getTemporada(diada["info"]["data"]);
 						return (
-							<div className="diada" data-season={season} style={{display: season !== document.getElementById('select_temporada').value ? 'none' : 'block' }}>
+							<div className="diada" data-season={season} style={{display: season !== last_temporada ? 'none' : 'block' }}>
 								<span className="nom">{diada["info"]["motiu"] || "Diada ?"}</span><br/>
 								<span className="place">{diada["info"]["situació"]}</span><br/>
 								<span className="date">{toString(diada["info"]["data"])} a les {diada["info"]["hora"]}</span><br/>
