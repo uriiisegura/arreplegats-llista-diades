@@ -96,6 +96,9 @@ function Llista(props) {
 	return (
 		<div id="llista">
 			<div className="wrap">
+				<div className="diada" data-season="2020-2021" style={{display: "none"}}>
+					<span className="nom">Durant aquesta temporada no es va actuar a causa de l'aturada provocada per la COVID-19.</span>
+				</div>
 				{
 					actuacions.map(diada => {
 						const season = getTemporada(diada["info"]["data"]);
