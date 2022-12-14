@@ -31,13 +31,16 @@ function Llista(props) {
 		for (let i = Math.min.apply(null, round); i <= Math.max.apply(null, round); i++) {
 			const ronda = [];
 			diada.forEach(castell => { if (parseInt(Object.keys(castell)) === i) ronda.push(Object.values(castell)[0]); });
-			castells += formatRound(ronda) + ", ";
+			const formated = formatRound(ronda);
+			if (formated !== false)
+				castells += formated + ", ";
 		}
 		return castells.slice(0,-2);
 	};
 
 	const formatRound = (castells) => {
-		castells = popPd(castells);	
+		castells = popPd(castells);
+		if (castells.length < 1) return false;
 		switch (castells.length) {
 			case 1:
 				return castells[0];
