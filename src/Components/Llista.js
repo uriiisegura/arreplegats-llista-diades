@@ -62,7 +62,7 @@ function Llista(props) {
 			let count = 0;
 			const weird = [];
 			castells.forEach((castell, i) => { if (castell === cleanCastells[i]) count += 1; else weird.push(castell) });
-			return count + cleanCastells[0] + '+' + weird.join('+');
+			return (count > 1 ? count : '') + cleanCastells[0] + '+' + weird.join('+');
 		}
 		// console.log(castells);
 		return castells.join('+');
